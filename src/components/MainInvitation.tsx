@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { INVITATION_CONFIG } from '../config/invitationConfig';
+import { AddToCalendar } from './AddToCalendar';
 
 export const MainInvitation: React.FC = () => {
   return (
@@ -95,8 +96,10 @@ export const MainInvitation: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{INVITATION_CONFIG.event.timeFormatted}</span>
-            <span className="text-gold-600 text-xs font-normal">({INVITATION_CONFIG.event.timezoneLabel})</span>
           </div>
+
+          {/* Add to Calendar Button */}
+          <AddToCalendar />
 
         </div>
       </motion.div>
