@@ -16,7 +16,7 @@ export function App() {
     // Start music on user touch gesture
     musicRef.current?.playMusic();
   };
-
+  
   const handleOpened = () => {
     setIsOpened(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });

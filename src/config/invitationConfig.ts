@@ -36,7 +36,7 @@ export const INVITATION_CONFIG = {
 
   // Arxa Fon Musiqisi
   music: {
-    url: "/music/engagement.mp3",
+    url: "/yasemen-samir-engagement/music/engagement.mp3",
     title: "Romantik Atmosfer",
   },
 
