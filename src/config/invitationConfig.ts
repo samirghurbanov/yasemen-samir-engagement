@@ -34,9 +34,9 @@ export const INVITATION_CONFIG = {
     googleMapsUrl: "https://maps.google.com/?q=Qorodok+Restaurant+Sumgayit+Azerbaijan",
   },
 
-  // Arxa Fon Musiqisi
+  // Arxa Fon Musiqisi (GitHub Pages üçün nisbi fayl yolu)
   music: {
-    url: "/yasemen-samir-engagement/music/engagement.mp3",
+    url: "music/engagement.mp3",
     title: "Romantik Atmosfer",
   },
 

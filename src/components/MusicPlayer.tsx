@@ -7,6 +7,17 @@ export interface MusicPlayerRef {
   pauseMusic: () => void;
 }
 
+const resolveAudioUrl = (rawUrl: string) => {
+  if (!rawUrl) return '';
+  if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://') || rawUrl.startsWith('data:')) {
+    return rawUrl;
+  }
+  const metaEnv = (import.meta as unknown as { env?: { BASE_URL?: string } }).env;
+  const baseUrl = metaEnv?.BASE_URL || './';
+  const cleanPath = rawUrl.startsWith('/') ? rawUrl.slice(1) : rawUrl;
+  return baseUrl.endsWith('/') ? `${baseUrl}${cleanPath}` : `${baseUrl}/${cleanPath}`;
+};
+
 export const MusicPlayer = forwardRef<MusicPlayerRef, { autoPlayRequested?: boolean }>(
   ({ autoPlayRequested }, ref) => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -14,19 +25,43 @@ export const MusicPlayer = forwardRef<MusicPlayerRef, { autoPlayRequested?: bool
     const [hasInteracted, setHasInteracted] = useState(false);
     const [audioError, setAudioError] = useState(false);
 
+    const resolvedAudioSrc = resolveAudioUrl(INVITATION_CONFIG.music.url);
+
+    const attemptPlay = () => {
+      if (!audioRef.current) return;
+      setAudioError(false);
+      audioRef.current.volume = 1.0;
+
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            setHasInteracted(true);
+            setAudioError(false);
+          })
+          .catch((err) => {
+            console.warn('Audio play request failed:', err);
+            if (audioRef.current) {
+              audioRef.current.load();
+              audioRef.current
+                .play()
+                .then(() => {
+                  setIsPlaying(true);
+                  setHasInteracted(true);
+                  setAudioError(false);
+                })
+                .catch(() => {
+                  setAudioError(true);
+                });
+            }
+          });
+      }
+    };
+
     useImperativeHandle(ref, () => ({
       playMusic: () => {
-        if (audioRef.current && !audioError) {
-          audioRef.current
-            .play()
-            .then(() => {
-              setIsPlaying(true);
-              setHasInteracted(true);
-            })
-            .catch((err) => {
-              console.log('Audio autoplay prevented by browser gesture requirement:', err);
-            });
-        }
+        attemptPlay();
       },
       pauseMusic: () => {
         if (audioRef.current) {
@@ -37,16 +72,29 @@ export const MusicPlayer = forwardRef<MusicPlayerRef, { autoPlayRequested?: bool
     }));
 
     useEffect(() => {
-      if (autoPlayRequested && !isPlaying && !hasInteracted && audioRef.current) {
-        audioRef.current
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-            setHasInteracted(true);
-          })
-          .catch(() => {});
+      if (autoPlayRequested && !isPlaying && !hasInteracted) {
+        attemptPlay();
       }
     }, [autoPlayRequested, isPlaying, hasInteracted]);
+
+    // Attach global user gesture listener to unlock audio on mobile
+    useEffect(() => {
+      const handleFirstGesture = () => {
+        if (!hasInteracted && audioRef.current && audioRef.current.paused) {
+          attemptPlay();
+        }
+      };
+
+      window.addEventListener('pointerdown', handleFirstGesture, { once: true });
+      window.addEventListener('touchstart', handleFirstGesture, { once: true });
+      window.addEventListener('click', handleFirstGesture, { once: true });
+
+      return () => {
+        window.removeEventListener('pointerdown', handleFirstGesture);
+        window.removeEventListener('touchstart', handleFirstGesture);
+        window.removeEventListener('click', handleFirstGesture);
+      };
+    }, [hasInteracted]);
 
     const togglePlay = () => {
       if (!audioRef.current) return;
@@ -54,17 +102,7 @@ export const MusicPlayer = forwardRef<MusicPlayerRef, { autoPlayRequested?: bool
         audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        audioRef.current
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-            setHasInteracted(true);
-            setAudioError(false);
-          })
-          .catch((err) => {
-            console.error('Audio playback error:', err);
-            setAudioError(true);
-          });
+        attemptPlay();
       }
     };
 
@@ -72,10 +110,13 @@ export const MusicPlayer = forwardRef<MusicPlayerRef, { autoPlayRequested?: bool
       <div className="fixed bottom-5 right-5 z-50 flex items-center space-x-2">
         <audio
           ref={audioRef}
-          src={INVITATION_CONFIG.music.url}
+          src={resolvedAudioSrc}
           loop
           preload="auto"
-          onError={() => setAudioError(true)}
+          onError={(e) => {
+            console.warn('Audio source load error for path:', resolvedAudioSrc, e);
+            setAudioError(true);
+          }}
         />
 
         <button
