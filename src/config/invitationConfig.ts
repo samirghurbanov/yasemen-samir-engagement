@@ -1,3 +1,5 @@
+import defaultAudio from '../assets/engagement.mp3';
+
 /**
  * SAMİR & YASƏMƏN NİŞAN DƏVƏTNAMƏSİ KONFİQURASİYASI
  * 
@@ -34,9 +36,9 @@ export const INVITATION_CONFIG = {
     googleMapsUrl: "https://maps.google.com/?q=Qorodok+Restaurant+Sumgayit+Azerbaijan",
   },
 
-  // Arxa Fon Musiqisi (GitHub Pages üçün nisbi fayl yolu)
+  // Arxa Fon Musiqisi (Vite tərəfindən idarə olunan fayl yolu)
   music: {
-    url: "music/engagement.mp3",
+    url: defaultAudio,
     title: "Romantik Atmosfer",
   },
 

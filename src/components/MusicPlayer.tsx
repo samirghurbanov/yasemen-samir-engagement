@@ -9,7 +9,11 @@ export interface MusicPlayerRef {
 
 const resolveAudioUrl = (rawUrl: string) => {
   if (!rawUrl) return '';
-  if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://') || rawUrl.startsWith('data:')) {
+  // If Vite already resolved the asset import (starts with blob:, data:, http, or ./assets / /assets)
+  if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://') || rawUrl.startsWith('data:') || rawUrl.startsWith('blob:')) {
+    return rawUrl;
+  }
+  if (rawUrl.startsWith('./') || rawUrl.startsWith('assets/')) {
     return rawUrl;
   }
   const metaEnv = (import.meta as unknown as { env?: { BASE_URL?: string } }).env;
