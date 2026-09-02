@@ -107,7 +107,7 @@ export const AddToCalendar: React.FC = () => {
               <Download className="w-3 h-3 text-charcoal-muted" />
             </button>
 
-            <a
+            {/* <a
               href={outlookUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -119,7 +119,7 @@ export const AddToCalendar: React.FC = () => {
               </div>
               <span className="font-medium flex-1">Outlook Calendar</span>
               <ExternalLink className="w-3 h-3 text-charcoal-muted" />
-            </a>
+            </a> */}
           </motion.div>
         )}
       </AnimatePresence>
