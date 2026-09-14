@@ -1,8 +1,8 @@
-import defaultAudio from '../assets/engagement.mp3';
+import defaultAudio from "../assets/engagement.mp3";
 
 /**
  * SAMİR & YASƏMƏN NİŞAN DƏVƏTNAMƏSİ KONFİQURASİYASI
- * 
+ *
  * Bütün məlumatları aşağıdakı hissədən asanlıqla yeniləyə bilərsiniz.
  */
 
@@ -28,12 +28,12 @@ export const INVITATION_CONFIG = {
 
   // Məkan Məlumatları
   venue: {
-    name: "QORODOK RESTORANI",
-    city: "Sumqayıt",
+    name: "KALYON",
+    city: "Novxanı",
     country: "Azərbaycan",
-    fullAddress: "Qorodok Restoranı, Sumqayıt, Azərbaycan",
+    fullAddress: "Kalyon, Novxanı, Azərbaycan",
     // Google Maps keçidi
-    googleMapsUrl: "https://maps.google.com/?q=Qorodok+Restaurant+Sumgayit+Azerbaijan",
+    googleMapsUrl: "https://maps.google.com/?q=Kalyon+Novxani+Azerbaijan",
   },
 
   // Arxa Fon Musiqisi (Vite tərəfindən idarə olunan fayl yolu)
@@ -45,8 +45,10 @@ export const INVITATION_CONFIG = {
   // Dəvətnamə Mətnləri
   messages: {
     openingInstruction: "Möhürə toxunun",
-    invitationQuote: "Bəzi anlar xatirəyə, bəzi xatirələr isə əbədiliyin başlanğıcına çevrilir.\n\nBöyük fərəh və sevinclə sizi bu özəl günümüzü bizimlə qeyd etməyə dəvət edirik.",
-    finalMessage: "Hekayəmizin bir hissəsi olduğunuz üçün təşəkkür edirik. Bu gözəl anı sizinlə bölüşməyi səbirsizliklə gözləyirik.",
+    invitationQuote:
+      "Bəzi anlar xatirəyə, bəzi xatirələr isə əbədiliyin başlanğıcına çevrilir.\n\nBöyük fərəh və sevinclə sizi bu özəl günümüzü bizimlə qeyd etməyə dəvət edirik.",
+    finalMessage:
+      "Hekayəmizin bir hissəsi olduğunuz üçün təşəkkür edirik. Bu gözəl anı sizinlə bölüşməyi səbirsizliklə gözləyirik.",
     withLove: "Sevgi ilə,",
     todaySpecialDay: "Bu gün bizim özəl günümüzdür ♡",
   },
@@ -54,6 +56,7 @@ export const INVITATION_CONFIG = {
   // SEO və Sosial Paylaşımlar
   meta: {
     title: "Samir & Yasəmən — Nişan Dəvətnaməsi",
-    description: "Siz 18 Oktyabr 2026 tarixində keçiriləcək Samir & Yasəmən cütlüyünün nişan mərasiminə dəvətlisiniz.",
-  }
+    description:
+      "Siz 18 Oktyabr 2026 tarixində keçiriləcək Samir & Yasəmən cütlüyünün nişan mərasiminə dəvətlisiniz.",
+  },
 } as const;
