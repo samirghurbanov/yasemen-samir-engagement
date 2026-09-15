@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import couplePhoto from "../assets/couple.jpeg";
 import { INVITATION_CONFIG } from "../config/invitationConfig";
 import { AddToCalendar } from "./AddToCalendar";
 
@@ -83,8 +84,7 @@ export const MainInvitation: React.FC = () => {
             <div
               className="h-72 sm:h-80 w-full bg-cover bg-center"
               style={{
-                backgroundImage:
-                  "linear-gradient(180deg, rgba(59,18,33,0.08), rgba(59,18,33,0.22)), url('/couple.jpeg')",
+                backgroundImage: `linear-gradient(180deg, rgba(59,18,33,0.08), rgba(59,18,33,0.22)), url(${couplePhoto})`,
               }}
             />
           </div>
