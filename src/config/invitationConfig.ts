@@ -36,6 +36,34 @@ export const INVITATION_CONFIG = {
     googleMapsUrl: "https://maps.google.com/?q=Kalyon+Novxani+Azerbaijan",
   },
 
+  // Hekayəmiz
+  story: [
+    {
+      date: "27 DEKABR 2024",
+      title: "İlk mesajımız",
+      description: "Hekayəmizin ilk cümləsi bir mesajla yazıldı.",
+    },
+    {
+      date: "9 APREL 2025",
+      title: "İlk görüşümüz",
+      description:
+        "İlk dəfə üz-üzə gəldiyimiz və gözəl hekayəmizin başladığı gün.",
+    },
+    {
+      date: "18 Oktyabr 2026",
+      title: "Nişanımız",
+      description: "Bu hekayənin ən gözəl anını sizinlə birlikdə qeyd edirik.",
+    },
+  ],
+
+  // Geyim tövsiyəsi
+  dressCode: {
+    title: "Zərif və bayram ab-havasında",
+    description:
+      "Bu xüsusi axşam üçün sizi öz üslubunuzda, zərif və rahat geyimdə görməkdən məmnun olarıq.",
+    colors: ["#6f1d35", "#d4af37", "#f4ede4", "#272322"],
+  },
+
   // Arxa Fon Musiqisi (Vite tərəfindən idarə olunan fayl yolu)
   music: {
     url: defaultAudio,

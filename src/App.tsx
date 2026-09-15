@@ -5,6 +5,8 @@ import { EnvelopeOpening } from "./components/EnvelopeOpening";
 import { MainInvitation } from "./components/MainInvitation";
 import { Countdown } from "./components/Countdown";
 import { VenueSection } from "./components/VenueSection";
+import { StoryTimeline } from "./components/StoryTimeline";
+import { DressCode } from "./components/DressCode";
 import { FinalMessage } from "./components/FinalMessage";
 import { MusicPlayer, MusicPlayerRef } from "./components/MusicPlayer";
 
@@ -60,6 +62,12 @@ export function App() {
 
             {/* Live Baku-time Countdown */}
             <Countdown />
+
+            {/* The couple's shared story */}
+            <StoryTimeline />
+
+            {/* Guest style guidance */}
+            <DressCode />
 
             {/* Refined Venue Section with Google Maps Link */}
             <VenueSection />
