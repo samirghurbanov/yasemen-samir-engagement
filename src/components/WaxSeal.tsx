@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface WaxSealProps {
   onClick: () => void;
@@ -7,7 +7,11 @@ interface WaxSealProps {
   disabled?: boolean;
 }
 
-export const WaxSeal: React.FC<WaxSealProps> = ({ onClick, isOpening, disabled }) => {
+export const WaxSeal: React.FC<WaxSealProps> = ({
+  onClick,
+  isOpening,
+  disabled,
+}) => {
   return (
     <motion.button
       type="button"
@@ -28,27 +32,22 @@ export const WaxSeal: React.FC<WaxSealProps> = ({ onClick, isOpening, disabled }
       }
       transition={{ duration: isOpening ? 2.5 : 0.2, ease: "easeInOut" }}
     >
-      {/* Outer Subtle Taupe Ambient Glow */}
-      <div className="absolute -inset-6 bg-[#d8cdbe]/30 rounded-full blur-xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 animate-pulse-slow pointer-events-none" />
+      {/* Outer Gold Ambient Glow */}
+      <div className="absolute -inset-6 bg-[radial-gradient(circle,_rgba(255,214,102,0.45),_rgba(212,175,55,0.18),_transparent_70%)] rounded-full blur-xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 animate-pulse-slow pointer-events-none" />
 
-      {/* Main Organic Taupe-Champagne Wax Seal Body (Exact match to reference photo) */}
-      <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-[48%] bg-taupe-wax shadow-[0_18px_40px_rgba(0,0,0,0.55),inset_0_3px_6px_rgba(255,255,255,0.85),inset_0_-5px_10px_rgba(110,95,80,0.6)] flex items-center justify-center border border-[#ece3d5]/70 transition-transform duration-300">
-        
+      {/* Main Organic Gold Wax Seal Body */}
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-[48%] bg-[#d4af37] shadow-[0_18px_40px_rgba(74,49,6,0.55),inset_0_0_0_rgba(255,255,255,0),inset_0_-5px_10px_rgba(111,79,18,0.35)] flex items-center justify-center border border-[#d4af37]/80 transition-transform duration-300">
         {/* Organic Molten Edge Ridges */}
-        <div className="absolute inset-1.5 rounded-[46%] border border-white/70 pointer-events-none opacity-85" />
-        <div className="absolute inset-3 rounded-[44%] border border-[#a89885]/60 pointer-events-none shadow-inner" />
-        
-        {/* Inner Stamped Wax Impression Basin */}
-        <div className="absolute inset-5 sm:inset-6 rounded-full bg-gradient-to-br from-[#f5efe6] via-[#d8cdbe] to-[#b3a391] shadow-inner flex items-center justify-center overflow-hidden border border-[#c2b4a1]">
-          
-          {/* Top Curved Specular Glare */}
-          <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/70 to-transparent pointer-events-none rounded-t-full" />
+        <div className="absolute inset-1.5 rounded-[46%] border border-[#f2d77d]/70 pointer-events-none opacity-90" />
+        <div className="absolute inset-3 rounded-[44%] border border-[#a6781a]/60 pointer-events-none shadow-inner" />
 
-          {/* Light Sheen effect upon Touch */}
+        {/* Inner Stamped Wax Impression Basin */}
+        <div className="absolute inset-5 sm:inset-6 rounded-full bg-[#d4af37] shadow-inner flex items-center justify-center overflow-hidden border border-[#c89b2b]">
+          {/* Single gold tone only; no highlight sheen */}
           {isOpening && (
             <motion.div
-              initial={{ x: '-100%', opacity: 0 }}
-              animate={{ x: '100%', opacity: [0, 0.85, 0] }}
+              initial={{ x: "-100%", opacity: 0 }}
+              animate={{ x: "100%", opacity: [0, 0.85, 0] }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90 to-transparent pointer-events-none transform -skew-x-12"
             />
@@ -62,19 +61,47 @@ export const WaxSeal: React.FC<WaxSealProps> = ({ onClick, isOpening, disabled }
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <linearGradient id="taupeSealMonogram" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#7a6c5c" />
-                <stop offset="50%" stopColor="#9e8f7d" />
-                <stop offset="100%" stopColor="#5c4e3f" />
+              <linearGradient
+                id="goldSealMonogram"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stopColor="#fff7dc" />
+                <stop offset="25%" stopColor="#f5d97d" />
+                <stop offset="50%" stopColor="#d9ab3c" />
+                <stop offset="75%" stopColor="#aa771d" />
+                <stop offset="100%" stopColor="#6b4512" />
               </linearGradient>
-              <filter id="taupeEmboss" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="1.2" stdDeviation="0.5" floodColor="#ffffff" floodOpacity="0.85" result="light" />
-                <feDropShadow dx="0" dy="-1.2" stdDeviation="0.6" floodColor="#4a3d30" floodOpacity="0.75" result="shadow" />
+              <filter
+                id="goldEmboss"
+                x="-20%"
+                y="-20%"
+                width="140%"
+                height="140%"
+              >
+                <feDropShadow
+                  dx="0"
+                  dy="1.2"
+                  stdDeviation="0.5"
+                  floodColor="#fffef7"
+                  floodOpacity="0.9"
+                  result="light"
+                />
+                <feDropShadow
+                  dx="0"
+                  dy="-1.2"
+                  stdDeviation="0.6"
+                  floodColor="#6b4207"
+                  floodOpacity="0.8"
+                  result="shadow"
+                />
               </filter>
             </defs>
 
             {/* SY Serif Monogram Typography Centered */}
-            <g filter="url(#taupeEmboss)" fill="url(#taupeSealMonogram)">
+            <g filter="url(#goldEmboss)" fill="#ffffff">
               <text
                 x="50"
                 y="46"
@@ -88,10 +115,14 @@ export const WaxSeal: React.FC<WaxSealProps> = ({ onClick, isOpening, disabled }
               </text>
 
               {/* Arching Twin Botanical Fern / Olive Leaves below Monogram (Exact Reference Match) */}
-              <g stroke="url(#taupeSealMonogram)" strokeWidth="1.2" fill="url(#taupeSealMonogram)">
+              <g stroke="#ffffff" strokeWidth="1.2" fill="#ffffff">
                 {/* Central Stem */}
-                <path d="M 50 53 L 50 78" strokeWidth="1.5" strokeLinecap="round" />
-                
+                <path
+                  d="M 50 53 L 50 78"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+
                 {/* Left Branch Leaves */}
                 <path d="M 50 60 C 44 56, 36 56, 30 60 C 37 63, 44 62, 50 60 Z" />
                 <path d="M 50 66 C 42 63, 34 65, 26 70 C 34 72, 42 70, 50 66 Z" />
@@ -104,7 +135,6 @@ export const WaxSeal: React.FC<WaxSealProps> = ({ onClick, isOpening, disabled }
               </g>
             </g>
           </svg>
-
         </div>
       </div>
 

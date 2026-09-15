@@ -4,58 +4,87 @@
 
 @layer base {
   html {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     color: #1c1917;
     background-color: #485449;
     -webkit-tap-highlight-color: transparent;
   }
 
-  h1, h2, h3, h4, .font-serif-luxury {
-    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif-luxury {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   }
 
   .font-cinzel {
-    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+    font-family: "Playfair Display", "Cormorant Garamond", serif;
   }
 }
 
-/* Reference Photo Exact Palette Tokens */
+/* Burgundy luxury palette tokens */
 .bg-sage-ref {
-  background-color: #7a8a76;
+  background-color: #6d1d36;
 }
 .bg-sage-ref-dark {
-  background-color: #4b5847;
+  background-color: #431322;
 }
 .bg-sage-ref-light {
-  background-color: #9aab95;
+  background-color: #9c4462;
 }
 
 /* Taupe Champagne Wax Seal */
 .bg-taupe-wax {
-  background: radial-gradient(circle at 35% 35%, #f5efe6 0%, #d8cdbe 35%, #beae9b 70%, #948270 100%);
+  background: radial-gradient(
+    circle at 35% 35%,
+    #f5efe6 0%,
+    #d8cdbe 35%,
+    #beae9b 70%,
+    #948270 100%
+  );
 }
 
 /* Paper Noise & Texture */
 .bg-paper-texture {
   background-color: #fdfbf7;
-  background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(247, 242, 234, 0.5) 70%, rgba(238, 229, 216, 0.4) 100%),
+  background-image:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(247, 242, 234, 0.5) 70%,
+      rgba(238, 229, 216, 0.4) 100%
+    ),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
 .bg-sage-texture-ref {
-  background-color: #798a75;
-  background-image: radial-gradient(circle at 45% 35%, rgba(144, 161, 140, 0.5) 0%, rgba(99, 115, 95, 0.7) 65%, rgba(53, 64, 50, 0.95) 100%),
+  background-color: #6f1d35;
+  background-image:
+    radial-gradient(
+      circle at 45% 35%,
+      rgba(201, 123, 145, 0.4) 0%,
+      rgba(120, 33, 61, 0.8) 55%,
+      rgba(42, 10, 22, 0.96) 100%
+    ),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
 /* High-Relief 3D Embossed Botanical Drop Shadow */
 .embossed-high-relief {
-  filter: drop-shadow(2px 3px 2px rgba(35, 45, 33, 0.65)) drop-shadow(-1.5px -1.5px 2px rgba(185, 201, 180, 0.6));
+  filter: drop-shadow(2px 3px 2px rgba(35, 45, 33, 0.65))
+    drop-shadow(-1.5px -1.5px 2px rgba(185, 201, 180, 0.6));
 }
 
 /* Gold Metallic Foil Gradients */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #f5e8cf 0%, #d4af37 40%, #c59b27 70%, #f5e8cf 100%);
+  background: linear-gradient(
+    135deg,
+    #f5e8cf 0%,
+    #d4af37 40%,
+    #c59b27 70%,
+    #f5e8cf 100%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,9 +96,15 @@
 }
 
 @keyframes shine {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Custom Smooth Scrollbar */
@@ -102,7 +137,7 @@
   position: relative;
 }
 .gold-accent-border::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 6px;
   border: 1px solid rgba(212, 175, 55, 0.4);

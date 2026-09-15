@@ -1,12 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { INVITATION_CONFIG } from '../config/invitationConfig';
-import { AddToCalendar } from './AddToCalendar';
+import React from "react";
+import { motion } from "framer-motion";
+import { INVITATION_CONFIG } from "../config/invitationConfig";
+import { AddToCalendar } from "./AddToCalendar";
 
 export const MainInvitation: React.FC = () => {
   return (
     <section className="relative w-full max-w-xl mx-auto pt-10 pb-8 px-6 text-center z-10 flex flex-col items-center">
-      
       {/* Decorative Gold Leaf Top Flourish */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -15,7 +14,13 @@ export const MainInvitation: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="mb-6"
       >
-        <svg width="40" height="24" viewBox="0 0 40 24" fill="none" className="mx-auto">
+        <svg
+          width="40"
+          height="24"
+          viewBox="0 0 40 24"
+          fill="none"
+          className="mx-auto"
+        >
           <path
             d="M20 0C18 6 12 10 0 12C12 14 18 18 20 24C22 18 28 14 40 12C28 10 22 6 20 0Z"
             fill="url(#goldFlourish)"
@@ -38,9 +43,15 @@ export const MainInvitation: React.FC = () => {
         transition={{ duration: 0.9, delay: 0.2 }}
         className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-charcoal leading-tight uppercase mb-2"
       >
-        <span className="block sm:inline">{INVITATION_CONFIG.couple.groom}</span>
-        <span className="block sm:inline font-serif italic text-gold-600 font-normal mx-2 sm:mx-3 lowercase text-3xl sm:text-4xl md:text-5xl">&amp;</span>
-        <span className="block sm:inline">{INVITATION_CONFIG.couple.bride}</span>
+        <span className="block sm:inline">
+          {INVITATION_CONFIG.couple.groom}
+        </span>
+        <span className="block sm:inline font-serif italic text-gold-600 font-normal mx-2 sm:mx-3 lowercase text-3xl sm:text-4xl md:text-5xl">
+          &amp;
+        </span>
+        <span className="block sm:inline">
+          {INVITATION_CONFIG.couple.bride}
+        </span>
       </motion.h1>
 
       {/* Subtitle */}
@@ -58,12 +69,34 @@ export const MainInvitation: React.FC = () => {
         <div className="w-8 h-[1px] bg-gold-400/40" />
       </motion.div>
 
+      {/* Couple Photo Frame */}
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, delay: 0.45 }}
+        className="relative w-full max-w-md mb-8"
+      >
+        <div className="absolute inset-0 rounded-[30px] bg-gradient-to-r from-burgundy-500/20 via-burgundy-300/15 to-gold-400/10 blur-2xl" />
+        <div className="relative rounded-[30px] border border-burgundy-200/70 bg-[#fffaf8] p-3 shadow-[0_20px_45px_rgba(76,18,33,0.12)]">
+          <div className="overflow-hidden rounded-[24px] border border-burgundy-200/90 bg-burgundy-50">
+            <div
+              className="h-72 sm:h-80 w-full bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "linear-gradient(180deg, rgba(59,18,33,0.08), rgba(59,18,33,0.22)), url('/couple.jpeg')",
+              }}
+            />
+          </div>
+        </div>
+      </motion.div>
+
       {/* Romantic Invitation Quote */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.9, delay: 0.45 }}
+        transition={{ duration: 0.9, delay: 0.55 }}
         className="my-8 max-w-lg px-4"
       >
         <p className="font-serif text-lg sm:text-xl md:text-2xl text-charcoal/90 leading-relaxed italic whitespace-pre-line font-light">
@@ -76,11 +109,10 @@ export const MainInvitation: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.9, delay: 0.55 }}
-        className="w-full max-w-sm my-4 bg-white/60 backdrop-blur-sm border border-gold-300/50 rounded-lg p-6 shadow-card gold-accent-border"
+        transition={{ duration: 0.9, delay: 0.65 }}
+        className="w-full max-w-sm my-4 bg-white/70 backdrop-blur-sm border border-burgundy-200/80 rounded-[22px] p-6 shadow-[0_18px_38px_rgba(76,18,33,0.10)] gold-accent-border"
       >
         <div className="flex flex-col items-center space-y-4">
-          
           <div className="font-cinzel text-xs tracking-[0.25em] text-gold-700 uppercase">
             {INVITATION_CONFIG.event.dayFormatted}
           </div>
@@ -92,18 +124,27 @@ export const MainInvitation: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-2 text-charcoal-muted text-sm font-sans tracking-widest font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4 text-gold-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.8}
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
             <span>{INVITATION_CONFIG.event.timeFormatted}</span>
           </div>
 
           {/* Add to Calendar Button */}
           <AddToCalendar />
-
         </div>
       </motion.div>
-
     </section>
   );
 };

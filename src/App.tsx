@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { AmbientBackground } from './components/AmbientBackground';
-import { EnvelopeOpening } from './components/EnvelopeOpening';
-import { MainInvitation } from './components/MainInvitation';
-import { Countdown } from './components/Countdown';
-import { VenueSection } from './components/VenueSection';
-import { FinalMessage } from './components/FinalMessage';
-import { MusicPlayer, MusicPlayerRef } from './components/MusicPlayer';
+import React, { useState, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { AmbientBackground } from "./components/AmbientBackground";
+import { EnvelopeOpening } from "./components/EnvelopeOpening";
+import { MainInvitation } from "./components/MainInvitation";
+import { Countdown } from "./components/Countdown";
+import { VenueSection } from "./components/VenueSection";
+import { FinalMessage } from "./components/FinalMessage";
+import { MusicPlayer, MusicPlayerRef } from "./components/MusicPlayer";
 
 export function App() {
   const [isOpened, setIsOpened] = useState(false);
@@ -16,14 +16,14 @@ export function App() {
     // Start music on user touch gesture
     musicRef.current?.playMusic();
   };
-  
+
   const handleOpened = () => {
     setIsOpened(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden text-charcoal bg-paper-texture selection:bg-gold-200">
+    <div className="relative min-h-screen w-full overflow-x-hidden text-charcoal bg-paper-texture selection:bg-burgundy-200">
       {/* GPU Canvas ambient gold particles & light leak background */}
       <AmbientBackground />
 
@@ -36,10 +36,16 @@ export function App() {
           <motion.div
             key="envelope-screen"
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
+            exit={{
+              opacity: 0,
+              transition: { duration: 0.8, ease: "easeInOut" },
+            }}
             className="w-full min-h-screen flex items-center justify-center"
           >
-            <EnvelopeOpening onOpened={handleOpened} onSealClicked={handleSealClicked} />
+            <EnvelopeOpening
+              onOpened={handleOpened}
+              onSealClicked={handleSealClicked}
+            />
           </motion.div>
         ) : (
           <motion.main
