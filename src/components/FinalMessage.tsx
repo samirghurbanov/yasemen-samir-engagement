@@ -29,9 +29,7 @@ export const FinalMessage: React.FC = () => {
           <span className="font-cinzel text-xs tracking-[0.25em] text-gold-700 uppercase">
             {INVITATION_CONFIG.messages.withLove}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-charcoal font-medium tracking-wide">
-            {INVITATION_CONFIG.couple.displayNames} <span className="text-gold-500 text-2xl font-normal">♡</span>
-          </h2>
+         
         </div>
 
         {/* Watermark Monogram Emblem */}

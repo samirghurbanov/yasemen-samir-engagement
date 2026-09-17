@@ -77,7 +77,7 @@ export const INVITATION_CONFIG = {
       "Bəzi anlar xatirəyə, bəzi xatirələr isə əbədiliyin başlanğıcına çevrilir.\n\nBöyük fərəh və sevinclə sizi bu özəl günümüzü bizimlə qeyd etməyə dəvət edirik.",
     finalMessage:
       "Hekayəmizin bir hissəsi olduğunuz üçün təşəkkür edirik. Bu gözəl anı sizinlə bölüşməyi səbirsizliklə gözləyirik.",
-    withLove: "Sevgi ilə,",
+    withLove: "Sevgi ilə",
     todaySpecialDay: "Bu gün bizim özəl günümüzdür ♡",
   },
 
