@@ -32,17 +32,17 @@ export const WaxSeal: React.FC<WaxSealProps> = ({
       }
       transition={{ duration: isOpening ? 2.5 : 0.2, ease: "easeInOut" }}
     >
-      {/* Outer Gold Ambient Glow */}
-      <div className="absolute -inset-6 bg-[radial-gradient(circle,_rgba(255,214,102,0.45),_rgba(212,175,55,0.18),_transparent_70%)] rounded-full blur-xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 animate-pulse-slow pointer-events-none" />
+      {/* Warm glow around the burgundy wax seal */}
+      <div className="absolute -inset-6 bg-[radial-gradient(circle,_rgba(126,26,45,0.28),_rgba(212,175,55,0.12),_transparent_70%)] rounded-full blur-xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 animate-pulse-slow pointer-events-none" />
 
       {/* Main Organic Gold Wax Seal Body */}
-      <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-[48%] bg-[#d4af37] shadow-[0_18px_40px_rgba(74,49,6,0.55),inset_0_0_0_rgba(255,255,255,0),inset_0_-5px_10px_rgba(111,79,18,0.35)] flex items-center justify-center border border-[#d4af37]/80 transition-transform duration-300">
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-[48%] bg-[#721b2d] shadow-[0_18px_40px_rgba(55,10,18,0.55),inset_0_0_0_rgba(255,255,255,0),inset_0_-5px_10px_rgba(45,6,14,0.4)] flex items-center justify-center border border-[#4b0d1b]/80 transition-transform duration-300">
         {/* Organic Molten Edge Ridges */}
-        <div className="absolute inset-1.5 rounded-[46%] border border-[#f2d77d]/70 pointer-events-none opacity-90" />
-        <div className="absolute inset-3 rounded-[44%] border border-[#a6781a]/60 pointer-events-none shadow-inner" />
+        <div className="absolute inset-1.5 rounded-[46%] border border-[#a94b5b]/70 pointer-events-none opacity-90" />
+        <div className="absolute inset-3 rounded-[44%] border border-[#3f0917]/70 pointer-events-none shadow-inner" />
 
         {/* Inner Stamped Wax Impression Basin */}
-        <div className="absolute inset-5 sm:inset-6 rounded-full bg-[#d4af37] shadow-inner flex items-center justify-center overflow-hidden border border-[#c89b2b]">
+        <div className="absolute inset-5 sm:inset-6 rounded-full bg-[#681426] shadow-inner flex items-center justify-center overflow-hidden border border-[#4b0d1b]">
           {/* Single gold tone only; no highlight sheen */}
           {isOpening && (
             <motion.div
@@ -68,11 +68,11 @@ export const WaxSeal: React.FC<WaxSealProps> = ({
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#fff7dc" />
-                <stop offset="25%" stopColor="#f5d97d" />
-                <stop offset="50%" stopColor="#d9ab3c" />
-                <stop offset="75%" stopColor="#aa771d" />
-                <stop offset="100%" stopColor="#6b4512" />
+                <stop offset="0%" stopColor="#fff0a8" />
+                <stop offset="25%" stopColor="#e4bd55" />
+                <stop offset="50%" stopColor="#b98121" />
+                <stop offset="75%" stopColor="#8d5b13" />
+                <stop offset="100%" stopColor="#5d390d" />
               </linearGradient>
               <filter
                 id="goldEmboss"
@@ -101,7 +101,7 @@ export const WaxSeal: React.FC<WaxSealProps> = ({
             </defs>
 
             {/* SY Serif Monogram Typography Centered */}
-            <g filter="url(#goldEmboss)" fill="#ffffff">
+            <g filter="url(#goldEmboss)" fill="url(#goldSealMonogram)">
               <text
                 x="50"
                 y="46"
@@ -115,7 +115,11 @@ export const WaxSeal: React.FC<WaxSealProps> = ({
               </text>
 
               {/* Arching Twin Botanical Fern / Olive Leaves below Monogram (Exact Reference Match) */}
-              <g stroke="#ffffff" strokeWidth="1.2" fill="#ffffff">
+              <g
+                stroke="url(#goldSealMonogram)"
+                strokeWidth="1.2"
+                fill="url(#goldSealMonogram)"
+              >
                 {/* Central Stem */}
                 <path
                   d="M 50 53 L 50 78"
