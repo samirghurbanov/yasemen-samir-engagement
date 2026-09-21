@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import couplePhoto from "../assets/couple.jpeg";
 import { INVITATION_CONFIG } from "../config/invitationConfig";
-import { AddToCalendar } from "./AddToCalendar";
 
 export const MainInvitation: React.FC = () => {
   return (
@@ -140,9 +139,6 @@ export const MainInvitation: React.FC = () => {
             </svg>
             <span>{INVITATION_CONFIG.event.timeFormatted}</span>
           </div>
-
-          {/* Add to Calendar Button */}
-          <AddToCalendar />
         </div>
       </motion.div>
     </section>

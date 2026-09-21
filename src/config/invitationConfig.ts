@@ -19,9 +19,9 @@ export const INVITATION_CONFIG = {
   // Mərasim Tarixi və Vaxtı (Bakı vaxtı: UTC+4)
   event: {
     // ISO Tarix sətri (Bakı yerli vaxtı: 18 Oktyabr 2026, 18:00)
-    isoDate: "2026-10-18T18:00:00+04:00",
+    isoDate: "2026-10-18T17:00:00+04:00",
     dateFormatted: "18 OKTYABR 2026",
-    timeFormatted: "18:00",
+    timeFormatted: "17:00",
     dayFormatted: "BAZAR GÜNÜ",
     timezoneLabel: "AZT (GMT+4)",
   },
@@ -85,6 +85,6 @@ export const INVITATION_CONFIG = {
   meta: {
     title: "Samir & Yasəmən — Nişan Dəvətnaməsi",
     description:
-      "Siz 18 Oktyabr 2026 tarixində keçiriləcək Samir & Yasəmən cütlüyünün nişan mərasiminə dəvətlisiniz.",
+      "18 Oktyabr 2026 ",
   },
 } as const;
