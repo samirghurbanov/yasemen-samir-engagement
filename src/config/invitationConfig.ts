@@ -36,26 +36,6 @@ export const INVITATION_CONFIG = {
     googleMapsUrl: "https://maps.google.com/?q=Kalyon+Novxani+Azerbaijan",
   },
 
-  // Hekayəmiz
-  story: [
-    {
-      date: "27 DEKABR 2024",
-      title: "İlk mesajımız",
-      description: "Hekayəmizin ilk cümləsi bir mesajla yazıldı.",
-    },
-    {
-      date: "9 APREL 2025",
-      title: "İlk görüşümüz",
-      description:
-        "İlk dəfə üz-üzə gəldiyimiz və gözəl hekayəmizin başladığı gün.",
-    },
-    {
-      date: "18 Oktyabr 2026",
-      title: "Nişanımız",
-      description: "Bu hekayənin ən gözəl anını sizinlə birlikdə qeyd edirik.",
-    },
-  ],
-
   // Geyim tövsiyəsi
   dressCode: {
     title: "Zərif və bayram ab-havasında",
@@ -84,7 +64,6 @@ export const INVITATION_CONFIG = {
   // SEO və Sosial Paylaşımlar
   meta: {
     title: "Samir & Yasəmən — Nişan Dəvətnaməsi",
-    description:
-      "18 Oktyabr 2026 ",
+    description: "18 Oktyabr 2026 ",
   },
 } as const;
